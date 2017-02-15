@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "chai": "^3.5.0",
+    "express": "^4.14.1",
+    "jquery": "^3.1.1",
+    "jsdom": "^9.11.0",
+    "mocha": "^3.2.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "grailed_scraper",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawn-southwell/grailed_scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawn-southwell/grailed_scraper/issues"
+  },
+  "homepage": "https://github.com/shawn-southwell/grailed_scraper#readme"
+}
