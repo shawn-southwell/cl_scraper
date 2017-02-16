@@ -3,7 +3,7 @@ const cheerio  = require('cheerio');
 const Promise = require('bluebird');
 const readline = require('readline');
 const twilio = require('twilio');
-const client = twilio('AC1816e2688d6a7920c8957aac3050d0ec', '2de256037a8d8f32e658c846dfba11ba');
+const client = twilio('TWILO_ACCOUNT_SSID', 'TWILIO_AUTH_TOKEN');
 
 const scraper = require('./scraper.js');
 const { checkCache, generateString, getSomeItems, sendSMS } = require('./util.js'); 
