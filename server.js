@@ -19,15 +19,8 @@ rl.question('WHAT YOU NEED \n', (answer) => {
 	rl.question('How many pages? \n', (int) => {
 
 			const URL = `https://losangeles.craigslist.org/search/sss?query=${query}&sort=rel&s=`;
-			const requests = [];
-			let queryNum = (Number(int) * 100) - 100;
-			console.log('lol math', queryNum);
-			let count = 0;
-
-			while(count < queryNum + 1){
-				requests.push(rp(URL+count));
-				count += 100;
-			}
+			const requests = [...Array(+int).keys()]
+				.map(int => rp(URL + (int * 100)));
 
 			Promise.each(requests, (request) => {
 					const $ = cheerio.load(request);
