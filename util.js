@@ -14,10 +14,10 @@ module.exports.getSomeItems = (data=[],howMany) => {
 	return data.slice(0,11);
 }
 
-module.exports.sendSMS = (client,message) => {
+module.exports.sendSMS = (client,to,from,message) => {
 	client.sendMessage({
-		to: 'REC_PHONE',
-		from: 'SEN_PHONE',
+		to,
+		from,
 		body: message,
 	});
 }

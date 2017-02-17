@@ -3,7 +3,9 @@ const cheerio  = require('cheerio');
 const Promise = require('bluebird');
 const readline = require('readline');
 const twilio = require('twilio');
-const client = twilio('TWILO_ACCOUNT_SSID', 'TWILIO_AUTH_TOKEN');
+//this will create an error until you generate a credentials file with your own information
+const { authToken, SSID, twilioNum, myNum } = require('./credentials.js');
+const client = twilio(SSID,authToken);
 
 const scraper = require('./scraper.js');
 const { checkCache, generateString, getSomeItems, sendSMS } = require('./util.js'); 
@@ -18,7 +20,8 @@ const { checkCache, generateString, getSomeItems, sendSMS } = require('./util.js
       const newItems = checkCache(cache,data);
       const diff = generateString(newItems);
       const firstTen = generateString(getSomeItems(cache,10));
-      sendSMS(client,firstTen);
+      console.log(firstTen);
+      sendSMS(client, myNum, twilioNum, firstTen);
     });
 
 })();
