@@ -6,7 +6,7 @@ module.exports.checkCache = (cache, data) => {
 
 module.exports.generateString = (data=[]) => {
 	return data.reduce((SMS, item) => {
-		return `${SMS} \n Title: 	${item.title} Price: ${item.price}`;	
+		return `${SMS} \n Title: ${item.title} Price: ${item.price}`;	
 	},'');
 }
 
@@ -16,8 +16,8 @@ module.exports.getSomeItems = (data=[],howMany) => {
 
 module.exports.sendSMS = (client,message) => {
 	client.sendMessage({
-		to: '18124595469',
-		from: '18126181295',
+		to: 'REC_PHONE',
+		from: 'SEN_PHONE',
 		body: message,
 	});
 }

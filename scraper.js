@@ -1,6 +1,7 @@
 module.exports = function scrape(readline, Promise, rp, cheerio) {
 
   return new Promise((resolve) => {
+
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
@@ -26,7 +27,7 @@ module.exports = function scrape(readline, Promise, rp, cheerio) {
               const title = $(row).find('.result-title').text();
               const price = $(row).find('.result-price').html() || 'no price avail';
               const href  = $(row).find('.result-info').find('a').attr('href');
-              const link = `http://losangeles.craigslist.org/${href}`;
+              const link = `http://${loc}.craigslist.org/${href}`;
               data.push({ title, price, link });
             });
             return data;
