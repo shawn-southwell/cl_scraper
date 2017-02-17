@@ -7,24 +7,18 @@ const client = twilio('TWILO_ACCOUNT_SSID', 'TWILIO_AUTH_TOKEN');
 
 const scraper = require('./scraper.js');
 const { checkCache, generateString, getSomeItems, sendSMS } = require('./util.js'); 
-	
-let cache;
 
-//make a chron job
-scraper(readline, Promise, rp, cheerio)
-.then((data) => {
-	if (!cache) {
-		cache = data;
-	} else {
-		cache = updateCache(data);
-	}
-	const newItems = checkCache(cache,data);
-	const diff = generateString(newItems);
-	const firstTen = generateString(getSomeItems(cache,10));
-	sendSMS(client,firstTen);
-});
+(function(){
+  let cache;
+  //make scraper a chron job
 
-			
-	
-	
+  scraper(readline, Promise, rp, cheerio)
+    .then(data => {
+      cache = !cache? data : updateCache(data);	
+      const newItems = checkCache(cache,data);
+      const diff = generateString(newItems);
+      const firstTen = generateString(getSomeItems(cache,10));
+      sendSMS(client,firstTen);
+    });
 
+})();

@@ -22,3 +22,12 @@ module.exports.sendSMS = (client,message) => {
 		body: message,
 	});
 }
+
+module.exports.updateCache = (data,cache) => {
+  if (cache[0].title === data[0].title) return data;
+  const firstPage = data.slice(0,51);
+  cache.unshift(firstPage.filter((item,i) => {
+    return item.title !== data[i].title;
+  }));
+  return cache;
+}
