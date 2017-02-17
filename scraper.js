@@ -6,6 +6,7 @@ module.exports = function scrape(readline, Promise, rp, cheerio) {
       output: process.stdout,
       terminal: false
     });
+
     rl.question('Where are you located? \n', (location) => {
 
       rl.question('What are you looking for? \n', (query) => {

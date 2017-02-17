@@ -1,4 +1,3 @@
-
 module.exports.checkCache = (cache, data) => {
 	const CACHE_TEN = cache.slice(0,11);
 	const DATA_TEN = data.slice(0,11);
